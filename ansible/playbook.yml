@@ -50,9 +50,9 @@
 
     - name: Copy files to host
       ansible.builtin.copy:
-        src: ../task
+        src: ../docker
         dest: /root
 
     - name: Run app
       ansible.builtin.command:
-        cmd: docker-compose -f /root/task/docker-compose.yml up -d
+        cmd: docker-compose -f /root/docker/docker-compose.yml up -d
