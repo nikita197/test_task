@@ -48,12 +48,12 @@
         name: docker
         state: restarted
 
-    - name: Copy files to host
-      ansible.builtin.copy:
-        src: ../docker
-        dest: /root
+    - name: Git clone repo
+      ansible.builtin.git:
+        repo: https://github.com/nikita197/test_task
+        dest: /tmp/test_task
 
     - name: Run app
       ansible.builtin.shell:
         cmd: docker compose -f docker-compose.yml up -d
-        chdir: /root/docker
+        chdir: /tmp/test_task/docker
