@@ -54,5 +54,6 @@
         dest: /root
 
     - name: Run app
-      ansible.builtin.command:
-        cmd: docker-compose -f /root/docker/docker-compose.yml up -d
+      ansible.builtin.shell:
+        cmd: docker compose -f docker-compose.yml up -d
+        chdir: /root/docker
